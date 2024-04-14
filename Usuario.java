@@ -1,4 +1,3 @@
-
 class Usuario {
     private int idUsuario;
     private String nomeUsuario;
@@ -17,8 +16,7 @@ class Usuario {
         this.senhaUsuario = senhaUsuario;
     }
 
-    public String realizarLoginUsuario() {
-        // sql
+    public String realizarLoginUsuario() {        // sql
         return "";
     }
 
