@@ -1,20 +1,23 @@
 package com.example;
 
+import com.example.controllers.AnimalEstimacaoController;
 import com.example.controllers.ClienteController;
 import com.example.controllers.FaturaController;
 import com.example.controllers.ProdutoController;
-import com.example.controllers.CompraController; 
 import com.example.controllers.AvaliacaoController;
+import com.example.controllers.CompraController;
+import com.example.models.AnimalEstimacaoModel;
 import com.example.models.ClienteModel;
 import com.example.models.FaturaModel;
 import com.example.models.ProdutoModel;
-import com.example.models.CompraModel; 
 import com.example.models.AvaliacaoModel;
+import com.example.models.CompraModel;
+import com.example.view.AnimalEstimacaoView;
 import com.example.view.ClienteView;
 import com.example.view.FaturaView;
 import com.example.view.ProdutoView;
-import com.example.view.CompraView; 
 import com.example.view.AvaliacaoView;
+import com.example.view.CompraView;
 
 import java.util.Scanner;
 
@@ -25,6 +28,10 @@ public class App {
         ClienteView clienteView = new ClienteView();
         ClienteController clienteController = new ClienteController(clienteModel, clienteView);
 
+        AnimalEstimacaoModel animalModel = new AnimalEstimacaoModel();
+        AnimalEstimacaoView animalView = new AnimalEstimacaoView();
+        AnimalEstimacaoController animalController = new AnimalEstimacaoController(animalModel, animalView);
+
         FaturaModel faturaModel = new FaturaModel();
         FaturaView faturaView = new FaturaView();
         FaturaController faturaController = new FaturaController(faturaModel, faturaView);
@@ -33,8 +40,8 @@ public class App {
         ProdutoView produtoView = new ProdutoView();
         ProdutoController produtoController = new ProdutoController(produtoModel, produtoView);
 
-        CompraModel compraModel = new CompraModel(); 
-        CompraView compraView = new CompraView(); 
+        CompraModel compraModel = new CompraModel();
+        CompraView compraView = new CompraView();
         CompraController compraController = new CompraController(compraModel, compraView);
 
         AvaliacaoModel avaliacaoModel = new AvaliacaoModel();
@@ -48,8 +55,8 @@ public class App {
             System.out.println("1. Operações do Cliente");
             System.out.println("2. Operações de Fatura");
             System.out.println("3. Operações de Produto");
-            System.out.println("4. Operações de Compra"); 
-            System.out.println("5. Operações de Avaliação"); 
+            System.out.println("4. Operações de Compra");
+            System.out.println("5. Operações de Avaliação");
             System.out.println("6. Sair");
             System.out.print("Escolha: ");
 
@@ -59,24 +66,29 @@ public class App {
                 case 1:
                     System.out.println("\nMenu Cliente:");
                     clienteController.iniciar();
+
                     break;
                 case 2:
+                    System.out.println("\nMenu Animais de Estimação:");
+                    animalController.iniciar();
+                    break;
+                case 3:
                     System.out.println("\nMenu Fatura:");
                     faturaController.iniciar();
                     break;
-                case 3:
+                case 4:
                     System.out.println("\nMenu Produto:");
                     produtoController.iniciar();
                     break;
-                case 4:
-                    System.out.println("\nMenu Compra:"); 
+                case 5:
+                    System.out.println("\nMenu Compra:");
                     compraController.iniciar();
                     break;
-                case 5:
+                case 6:
                     System.out.println("\nMenu Avaliação:");
                     avaliacaoController.iniciar();
                     break;
-                case 6:
+                case 7:
                     System.out.println("Saindo do programa. Até mais!");
                     scanner.close();
                     break;
@@ -84,6 +96,6 @@ public class App {
                     System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
                     break;
             }
-        } while (opcao != 5); 
+        } while (opcao != 5);
     }
 }
