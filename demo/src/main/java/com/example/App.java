@@ -4,14 +4,17 @@ import com.example.controllers.ClienteController;
 import com.example.controllers.FaturaController;
 import com.example.controllers.ProdutoController;
 import com.example.controllers.CompraController; 
+import com.example.controllers.AvaliacaoController;
 import com.example.models.ClienteModel;
 import com.example.models.FaturaModel;
 import com.example.models.ProdutoModel;
 import com.example.models.CompraModel; 
+import com.example.models.AvaliacaoModel;
 import com.example.view.ClienteView;
 import com.example.view.FaturaView;
 import com.example.view.ProdutoView;
 import com.example.view.CompraView; 
+import com.example.view.AvaliacaoView;
 
 import java.util.Scanner;
 
@@ -34,6 +37,10 @@ public class App {
         CompraView compraView = new CompraView(); 
         CompraController compraController = new CompraController(compraModel, compraView);
 
+        AvaliacaoModel avaliacaoModel = new AvaliacaoModel();
+        AvaliacaoView avaliacaoView = new AvaliacaoView();
+        AvaliacaoController avaliacaoController = new AvaliacaoController(avaliacaoModel, avaliacaoView);
+
         int opcao;
 
         do {
@@ -42,7 +49,8 @@ public class App {
             System.out.println("2. Operações de Fatura");
             System.out.println("3. Operações de Produto");
             System.out.println("4. Operações de Compra"); 
-            System.out.println("5. Sair"); 
+            System.out.println("5. Operações de Avaliação"); 
+            System.out.println("6. Sair");
             System.out.print("Escolha: ");
 
             opcao = scanner.nextInt();
@@ -65,6 +73,10 @@ public class App {
                     compraController.iniciar();
                     break;
                 case 5:
+                    System.out.println("\nMenu Avaliação:");
+                    avaliacaoController.iniciar();
+                    break;
+                case 6:
                     System.out.println("Saindo do programa. Até mais!");
                     scanner.close();
                     break;
